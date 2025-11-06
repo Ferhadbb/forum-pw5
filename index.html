@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .scope {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #0066cc;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: white;
+        }
+
+        legend {
+            color: #0066cc;
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="email"]:invalid {
+            border-color: red;
+            background-color: #ffe6e6;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        textarea {
+            height: 100px;
+            font-family: monospace;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0052a3;
+        }
+
+        .required {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Development Quiz</h1>
+    
+    <div class="scope">
+        <p><strong>Scope:</strong> This quiz tests your knowledge of HTML forms and web development basics. Answer the questions and submit the form. Note: the date input may not work on all browsers (Safari, IE).</p>
+    </div>
+
+    <form action="process_quiz.php" method="POST">
+        <!-- Student Identification -->
+        <fieldset>
+            <legend>Student Identification <span class="required">*</span></legend>
+            
+            <label for="firstname">First Name <span class="required">*</span></label>
+            <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+
+            <label for="lastname">Last Name <span class="required">*</span></label>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
+
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+        </fieldset>
+
+        <!-- Quiz Date -->
+        <label for="quiz-date">Quiz Date <span class="required">*</span></label>
+        <input type="date" id="quiz-date" name="quiz_date" required>
+        <p><small>Note: Date input may not work on Safari or IE</small></p>
+
+        <!-- Question 1: Radio Buttons -->
+        <fieldset>
+            <legend>Question 1: What is the correct HTML5 doctype? <span class="required">*</span></legend>
+            
+            <input type="radio" id="q1a" name="question1" value="html5" required>
+            <label for="q1a">&lt;!DOCTYPE html&gt;</label><br>
+            
+            <input type="radio" id="q1b" name="question1" value="html4">
+            <label for="q1b">&lt;!DOCTYPE HTML PUBLIC...&gt;</label><br>
+            
+            <input type="radio" id="q1c" name="question1" value="xhtml">
+            <label for="q1c">&lt;!DOCTYPE html PUBLIC XHTML...&gt;</label><br>
+            
+            <input type="radio" id="q1d" name="question1" value="none">
+            <label for="q1d">No doctype needed</label>
+        </fieldset>
+
+        <!-- Question 2: Checkboxes -->
+        <fieldset>
+            <legend>Question 2: Select valid CSS selectors <span class="required">*</span></legend>
+            
+            <input type="checkbox" id="q2a" name="question2[]" value="class" required>
+            <label for="q2a">Class selector (.classname)</label><br>
+            
+            <input type="checkbox" id="q2b" name="question2[]" value="id">
+            <label for="q2b">ID selector (#idname)</label><br>
+            
+            <input type="checkbox" id="q2c" name="question2[]" value="element">
+            <label for="q2c">Element selector (div, p, etc.)</label><br>
+            
+            <input type="checkbox" id="q2d" name="question2[]" value="invalid">
+            <label for="q2d">Variable selector ($variable)</label>
+        </fieldset>
+
+        <!-- Question 3: Dropdown with optgroup -->
+        <label for="framework">Question 3: Preferred framework (optional)</label>
+        <select id="framework" name="framework">
+            <option value="">-- Select --</option>
+            <optgroup label="JavaScript">
+                <option value="react">React</option>
+                <option value="vue">Vue</option>
+                <option value="angular">Angular</option>
+            </optgroup>
+            <optgroup label="CSS">
+                <option value="bootstrap">Bootstrap</option>
+                <option value="tailwind">Tailwind</option>
+            </optgroup>
+            <optgroup label="Other">
+                <option value="none">Vanilla JS</option>
+            </optgroup>
+        </select>
+
+        <!-- Question 4: Textarea -->
+        <label for="code">Question 4: Write HTML code <span class="required">*</span></label>
+        <textarea id="code" name="code_snippet" placeholder="Write your HTML code here..." required></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Quiz</button>
+    </form>
+</body>
+</html>
