@@ -43,6 +43,10 @@
             font-weight: bold;
         }
 
+        fieldset label {
+            cursor: pointer;
+        }
+
         input[type="text"],
         input[type="email"],
         input[type="date"],
@@ -58,6 +62,10 @@
         input[type="email"]:invalid {
             border-color: red;
             background-color: #ffe6e6;
+        }
+
+        input[type="email"]:valid {
+            border-color: green;
         }
 
         input[type="radio"],
@@ -93,11 +101,11 @@
     <h1>Web Development Quiz</h1>
     
     <div class="scope">
-        <p><strong>Scope:</strong> This quiz tests your knowledge of HTML forms and web development basics. Answer the questions and submit the form. Note: the date input may not work on all browsers (Safari, IE).</p>
+        <p><strong>Scope of this Quiz:</strong> This quiz is designed to test your understanding of web development fundamentals, including HTML form controls, CSS styling, and web technologies. You will answer questions using various form input types including text fields, radio buttons, checkboxes, dropdown menus, and text areas. Please complete all required fields marked with <span class="required">*</span> before submitting.</p>
     </div>
 
     <form action="process_quiz.php" method="POST">
-        <!-- Student Identification -->
+   
         <fieldset>
             <legend>Student Identification <span class="required">*</span></legend>
             
@@ -111,46 +119,37 @@
             <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
         </fieldset>
 
-        <!-- Quiz Date -->
+    
         <label for="quiz-date">Quiz Date <span class="required">*</span></label>
         <input type="date" id="quiz-date" name="quiz_date" required>
         <p><small>Note: Date input may not work on Safari or IE</small></p>
 
-        <!-- Question 1: Radio Buttons -->
         <fieldset>
             <legend>Question 1: What is the correct HTML5 doctype? <span class="required">*</span></legend>
             
-            <input type="radio" id="q1a" name="question1" value="html5" required>
-            <label for="q1a">&lt;!DOCTYPE html&gt;</label><br>
+            <label><input type="radio" name="question1" value="html5" required> &lt;!DOCTYPE html&gt;</label><br>
             
-            <input type="radio" id="q1b" name="question1" value="html4">
-            <label for="q1b">&lt;!DOCTYPE HTML PUBLIC...&gt;</label><br>
+            <label><input type="radio" name="question1" value="html4"> &lt;!DOCTYPE HTML PUBLIC...&gt;</label><br>
             
-            <input type="radio" id="q1c" name="question1" value="xhtml">
-            <label for="q1c">&lt;!DOCTYPE html PUBLIC XHTML...&gt;</label><br>
+            <label><input type="radio" name="question1" value="xhtml"> &lt;!DOCTYPE html PUBLIC XHTML...&gt;</label><br>
             
-            <input type="radio" id="q1d" name="question1" value="none">
-            <label for="q1d">No doctype needed</label>
+            <label><input type="radio" name="question1" value="none"> No doctype needed</label>
         </fieldset>
 
-        <!-- Question 2: Checkboxes -->
+     
         <fieldset>
             <legend>Question 2: Select valid CSS selectors <span class="required">*</span></legend>
             
-            <input type="checkbox" id="q2a" name="question2[]" value="class" required>
-            <label for="q2a">Class selector (.classname)</label><br>
+            <label><input type="checkbox" name="question2[]" value="class" required> Class selector (.classname)</label><br>
             
-            <input type="checkbox" id="q2b" name="question2[]" value="id">
-            <label for="q2b">ID selector (#idname)</label><br>
+            <label><input type="checkbox" name="question2[]" value="id"> ID selector (#idname)</label><br>
             
-            <input type="checkbox" id="q2c" name="question2[]" value="element">
-            <label for="q2c">Element selector (div, p, etc.)</label><br>
+            <label><input type="checkbox" name="question2[]" value="element"> Element selector (div, p, etc.)</label><br>
             
-            <input type="checkbox" id="q2d" name="question2[]" value="invalid">
-            <label for="q2d">Variable selector ($variable)</label>
+            <label><input type="checkbox" name="question2[]" value="invalid"> Variable selector ($variable)</label>
         </fieldset>
 
-        <!-- Question 3: Dropdown with optgroup -->
+  
         <label for="framework">Question 3: Preferred framework (optional)</label>
         <select id="framework" name="framework">
             <option value="">-- Select --</option>
@@ -168,11 +167,11 @@
             </optgroup>
         </select>
 
-        <!-- Question 4: Textarea -->
-        <label for="code">Question 4: Write HTML code <span class="required">*</span></label>
-        <textarea id="code" name="code_snippet" placeholder="Write your HTML code here..." required></textarea>
+  
+        <label for="code">Question 4: Write a simple HTML or CSS code snippet <span class="required">*</span></label>
+        <textarea id="code" name="code_snippet" placeholder="Enter your HTML or CSS code here..." required></textarea>
 
-        <!-- Submit Button -->
+
         <button type="submit">Submit Quiz</button>
     </form>
 </body>
